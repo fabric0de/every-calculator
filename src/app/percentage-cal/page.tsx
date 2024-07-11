@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Head from "next/head";
 
 const PercentageCalculator = () => {
   const [value, setValue] = useState("");
@@ -71,171 +72,192 @@ const PercentageCalculator = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100 dark:bg-gray-800">
-      <h1 className="text-2xl font-bold mb-6 dark:text-white">퍼센트 계산기</h1>
+    <>
+      <Head>
+        <title>퍼센트 계산기</title>
+        <meta
+          name="description"
+          content="값과 퍼센트를 입력하여 다양한 퍼센트 계산을 수행하세요."
+        />
+        <meta property="og:title" content="퍼센트 계산기" />
+        <meta
+          property="og:description"
+          content="값과 퍼센트를 입력하여 다양한 퍼센트 계산을 수행하세요."
+        />
+        <meta property="og:image" content="/images/preview.jpeg" />
+        <meta
+          property="og:url"
+          content="https://every-calculator.vercel.app/percentage-cal"
+        />
+      </Head>
+      <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100 dark:bg-gray-800">
+        <h1 className="text-2xl font-bold mb-6 dark:text-white">
+          퍼센트 계산기
+        </h1>
 
-      <div className="mb-8 w-full max-w-md p-4 bg-white dark:bg-gray-700 rounded shadow">
-        <h2 className="text-xl font-bold mb-4 dark:text-white">
-          값의 비율 계산
-        </h2>
-        <div className="mb-4">
-          <label className="block mb-2 dark:text-white">값</label>
-          <input
-            type="number"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
-            placeholder="값을 입력하세요"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-2 dark:text-white">퍼센트</label>
-          <input
-            type="number"
-            value={percentage}
-            onChange={(e) => setPercentage(e.target.value)}
-            className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
-            placeholder="퍼센트를 입력하세요"
-          />
-        </div>
-        <button
-          onClick={() => handleCalculate("percentageValue")}
-          className="p-2 bg-blue-500 text-white rounded w-full"
-        >
-          계산
-        </button>
-        {results.percentageValue !== undefined && (
-          <div className="mt-4 p-2 border rounded bg-gray-200 dark:bg-gray-600 dark:text-white">
-            <h3 className="font-bold">결과</h3>
-            <p>
-              값의 {percentage}%는 {results.percentageValue}입니다.
-            </p>
+        <div className="mb-8 w-full max-w-md p-4 bg-white dark:bg-gray-700 rounded shadow">
+          <h2 className="text-xl font-bold mb-4 dark:text-white">
+            값의 비율 계산
+          </h2>
+          <div className="mb-4">
+            <label className="block mb-2 dark:text-white">값</label>
+            <input
+              type="number"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
+              placeholder="값을 입력하세요"
+            />
           </div>
-        )}
-      </div>
+          <div className="mb-4">
+            <label className="block mb-2 dark:text-white">퍼센트</label>
+            <input
+              type="number"
+              value={percentage}
+              onChange={(e) => setPercentage(e.target.value)}
+              className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
+              placeholder="퍼센트를 입력하세요"
+            />
+          </div>
+          <button
+            onClick={() => handleCalculate("percentageValue")}
+            className="p-2 bg-blue-500 text-white rounded w-full"
+          >
+            계산
+          </button>
+          {results.percentageValue !== undefined && (
+            <div className="mt-4 p-2 border rounded bg-gray-200 dark:bg-gray-600 dark:text-white">
+              <h3 className="font-bold">결과</h3>
+              <p>
+                값의 {percentage}%는 {results.percentageValue}입니다.
+              </p>
+            </div>
+          )}
+        </div>
 
-      <div className="mb-8 w-full max-w-md p-4 bg-white dark:bg-gray-700 rounded shadow">
-        <h2 className="text-xl font-bold mb-4 dark:text-white">
-          값의 일부 비율 계산
-        </h2>
-        <div className="mb-4">
-          <label className="block mb-2 dark:text-white">값</label>
-          <input
-            type="number"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
-            placeholder="값을 입력하세요"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-2 dark:text-white">값의 일부</label>
-          <input
-            type="number"
-            value={partValue}
-            onChange={(e) => setPartValue(e.target.value)}
-            className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
-            placeholder="값의 일부를 입력하세요"
-          />
-        </div>
-        <button
-          onClick={() => handleCalculate("partValuePercentage")}
-          className="p-2 bg-blue-500 text-white rounded w-full"
-        >
-          계산
-        </button>
-        {results.partValuePercentage !== undefined && (
-          <div className="mt-4 p-2 border rounded bg-gray-200 dark:bg-gray-600 dark:text-white">
-            <h3 className="font-bold">결과</h3>
-            <p>
-              값의 일부 {partValue}의 비율은 {results.partValuePercentage}
-              %입니다.
-            </p>
+        <div className="mb-8 w-full max-w-md p-4 bg-white dark:bg-gray-700 rounded shadow">
+          <h2 className="text-xl font-bold mb-4 dark:text-white">
+            값의 일부 비율 계산
+          </h2>
+          <div className="mb-4">
+            <label className="block mb-2 dark:text-white">값</label>
+            <input
+              type="number"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
+              placeholder="값을 입력하세요"
+            />
           </div>
-        )}
-      </div>
+          <div className="mb-4">
+            <label className="block mb-2 dark:text-white">값의 일부</label>
+            <input
+              type="number"
+              value={partValue}
+              onChange={(e) => setPartValue(e.target.value)}
+              className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
+              placeholder="값의 일부를 입력하세요"
+            />
+          </div>
+          <button
+            onClick={() => handleCalculate("partValuePercentage")}
+            className="p-2 bg-blue-500 text-white rounded w-full"
+          >
+            계산
+          </button>
+          {results.partValuePercentage !== undefined && (
+            <div className="mt-4 p-2 border rounded bg-gray-200 dark:bg-gray-600 dark:text-white">
+              <h3 className="font-bold">결과</h3>
+              <p>
+                값의 일부 {partValue}의 비율은 {results.partValuePercentage}
+                %입니다.
+              </p>
+            </div>
+          )}
+        </div>
 
-      <div className="mb-8 w-full max-w-md p-4 bg-white dark:bg-gray-700 rounded shadow">
-        <h2 className="text-xl font-bold mb-4 dark:text-white">
-          값의 변경값 증가/감소 퍼센트 계산
-        </h2>
-        <div className="mb-4">
-          <label className="block mb-2 dark:text-white">초기 값</label>
-          <input
-            type="number"
-            value={initialValue}
-            onChange={(e) => setInitialValue(e.target.value)}
-            className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
-            placeholder="초기 값을 입력하세요"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-2 dark:text-white">최종 값</label>
-          <input
-            type="number"
-            value={finalValue}
-            onChange={(e) => setFinalValue(e.target.value)}
-            className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
-            placeholder="최종 값을 입력하세요"
-          />
-        </div>
-        <button
-          onClick={() => handleCalculate("percentageIncreaseDecrease")}
-          className="p-2 bg-blue-500 text-white rounded w-full"
-        >
-          계산
-        </button>
-        {results.percentageIncreaseDecrease !== undefined && (
-          <div className="mt-4 p-2 border rounded bg-gray-200 dark:bg-gray-600 dark:text-white">
-            <h3 className="font-bold">결과</h3>
-            <p>
-              초기 값 {initialValue}에서 최종 값 {finalValue}로의 변경 퍼센트는{" "}
-              {results.percentageIncreaseDecrease}%입니다.
-            </p>
+        <div className="mb-8 w-full max-w-md p-4 bg-white dark:bg-gray-700 rounded shadow">
+          <h2 className="text-xl font-bold mb-4 dark:text-white">
+            값의 변경값 증가/감소 퍼센트 계산
+          </h2>
+          <div className="mb-4">
+            <label className="block mb-2 dark:text-white">초기 값</label>
+            <input
+              type="number"
+              value={initialValue}
+              onChange={(e) => setInitialValue(e.target.value)}
+              className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
+              placeholder="초기 값을 입력하세요"
+            />
           </div>
-        )}
-      </div>
+          <div className="mb-4">
+            <label className="block mb-2 dark:text-white">최종 값</label>
+            <input
+              type="number"
+              value={finalValue}
+              onChange={(e) => setFinalValue(e.target.value)}
+              className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
+              placeholder="최종 값을 입력하세요"
+            />
+          </div>
+          <button
+            onClick={() => handleCalculate("percentageIncreaseDecrease")}
+            className="p-2 bg-blue-500 text-white rounded w-full"
+          >
+            계산
+          </button>
+          {results.percentageIncreaseDecrease !== undefined && (
+            <div className="mt-4 p-2 border rounded bg-gray-200 dark:bg-gray-600 dark:text-white">
+              <h3 className="font-bold">결과</h3>
+              <p>
+                초기 값 {initialValue}에서 최종 값 {finalValue}로의 변경
+                퍼센트는 {results.percentageIncreaseDecrease}%입니다.
+              </p>
+            </div>
+          )}
+        </div>
 
-      <div className="mb-8 w-full max-w-md p-4 bg-white dark:bg-gray-700 rounded shadow">
-        <h2 className="text-xl font-bold mb-4 dark:text-white">
-          퍼센트 증가/감소에 따른 값의 변경 계산
-        </h2>
-        <div className="mb-4">
-          <label className="block mb-2 dark:text-white">값</label>
-          <input
-            type="number"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
-            placeholder="값을 입력하세요"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-2 dark:text-white">변경 퍼센트</label>
-          <input
-            type="number"
-            value={percentChange}
-            onChange={(e) => setPercentChange(e.target.value)}
-            className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
-            placeholder="변경 퍼센트를 입력하세요"
-          />
-        </div>
-        <button
-          onClick={() => handleCalculate("valueIncreaseDecrease")}
-          className="p-2 bg-blue-500 text-white rounded w-full"
-        >
-          계산
-        </button>
-        {results.valueIncreaseDecrease !== undefined && (
-          <div className="mt-4 p-2 border rounded bg-gray-200 dark:bg-gray-600 dark:text-white">
-            <h3 className="font-bold">결과</h3>
-            <p>
-              값의 {percentChange}%는 {results.valueIncreaseDecrease}입니다.
-            </p>
+        <div className="mb-8 w-full max-w-md p-4 bg-white dark:bg-gray-700 rounded shadow">
+          <h2 className="text-xl font-bold mb-4 dark:text-white">
+            퍼센트 증가/감소에 따른 값의 변경 계산
+          </h2>
+          <div className="mb-4">
+            <label className="block mb-2 dark:text-white">값</label>
+            <input
+              type="number"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
+              placeholder="값을 입력하세요"
+            />
           </div>
-        )}
+          <div className="mb-4">
+            <label className="block mb-2 dark:text-white">변경 퍼센트</label>
+            <input
+              type="number"
+              value={percentChange}
+              onChange={(e) => setPercentChange(e.target.value)}
+              className="p-2 border rounded bg-gray-200 text-black dark:bg-gray-600 dark:text-white w-full"
+              placeholder="변경 퍼센트를 입력하세요"
+            />
+          </div>
+          <button
+            onClick={() => handleCalculate("valueIncreaseDecrease")}
+            className="p-2 bg-blue-500 text-white rounded w-full"
+          >
+            계산
+          </button>
+          {results.valueIncreaseDecrease !== undefined && (
+            <div className="mt-4 p-2 border rounded bg-gray-200 dark:bg-gray-600 dark:text-white">
+              <h3 className="font-bold">결과</h3>
+              <p>
+                값의 {percentChange}%는 {results.valueIncreaseDecrease}입니다.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
