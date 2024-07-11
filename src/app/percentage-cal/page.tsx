@@ -1,7 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import Head from "next/head";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "퍼센트 계산기",
+  description: "값과 퍼센트를 입력하여 다양한 퍼센트 계산을 수행하세요.",
+  openGraph: {
+    type: "website",
+    url: "https://every-calculator.vercel.app/percentage-cal",
+    title: "퍼센트 계산기",
+    description: "값과 퍼센트를 입력하여 다양한 퍼센트 계산을 수행하세요.",
+    images: [
+      {
+        url: "/images/preview.jpeg",
+        alt: "퍼센트 계산기 미리보기 이미지",
+      },
+    ],
+  },
+};
 
 const PercentageCalculator = () => {
   const [value, setValue] = useState("");
@@ -73,23 +90,6 @@ const PercentageCalculator = () => {
 
   return (
     <>
-      <Head>
-        <title>퍼센트 계산기</title>
-        <meta
-          name="description"
-          content="값과 퍼센트를 입력하여 다양한 퍼센트 계산을 수행하세요."
-        />
-        <meta property="og:title" content="퍼센트 계산기" />
-        <meta
-          property="og:description"
-          content="값과 퍼센트를 입력하여 다양한 퍼센트 계산을 수행하세요."
-        />
-        <meta property="og:image" content="/images/preview.jpeg" />
-        <meta
-          property="og:url"
-          content="https://every-calculator.vercel.app/percentage-cal"
-        />
-      </Head>
       <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100 dark:bg-gray-800">
         <h1 className="text-2xl font-bold mb-6 dark:text-white">
           퍼센트 계산기

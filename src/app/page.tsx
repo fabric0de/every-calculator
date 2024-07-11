@@ -1,26 +1,26 @@
 import Link from "next/link";
-import Head from "next/head";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "다양한 계산기 모음",
+  description: "다양한 계산기를 간단하고 편리하게 활용해 보세요!",
+  openGraph: {
+    type: "website",
+    url: "https://every-calculator.vercel.app/",
+    title: "다양한 계산기 모음",
+    description: "다양한 계산기를 간단하고 편리하게 활용해 보세요!",
+    images: [
+      {
+        url: "/images/preview.jpeg",
+        alt: "다양한 계산기 모음 미리보기 이미지",
+      },
+    ],
+  },
+};
 
 const Home = () => {
   return (
     <>
-      <Head>
-        <title>다양한 계산기 모음</title>
-        <meta
-          name="description"
-          content="다양한 계산기를 간단하고 편리하게 활용해 보세요!"
-        />
-        <meta property="og:title" content="다양한 계산기 모음" />
-        <meta
-          property="og:description"
-          content="다양한 계산기를 간단하고 편리하게 활용해 보세요!"
-        />
-        <meta property="og:image" content="/images/preview.jpeg" />
-        <meta
-          property="og:url"
-          content="https://every-calculator.vercel.app/"
-        />
-      </Head>
       <div className="flex flex-col items-center justify-center min-h-screen p-4">
         <h1 className="text-3xl font-bold mb-6">다양한 계산기 모음</h1>
         <Link href="/working-day">
