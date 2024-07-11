@@ -2,11 +2,12 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://every-calculator.vercel.app"),
   title: "다양한 계산기 모음",
   description: "다양한 계산기를 간단하고 편리하게 활용해 보세요!",
   openGraph: {
     type: "website",
-    url: "https://every-calculator.vercel.app/",
+    url: "/",
     title: "다양한 계산기 모음",
     description: "다양한 계산기를 간단하고 편리하게 활용해 보세요!",
     images: [
