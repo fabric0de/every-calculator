@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://every-calculator.vercel.app"),
   title: "워킹데이 계산기",
   description: "워킹데이를 계산하는 도구입니다.",
+  icons: {
+    icon: "/images/favicon.png",
+  },
   openGraph: {
     type: "website",
     url: "/working-day",

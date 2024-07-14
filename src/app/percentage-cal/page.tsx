@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://every-calculator.vercel.app"),
   title: "퍼센트 계산기",
   description: "값과 퍼센트를 입력하여 다양한 퍼센트 계산을 수행하세요.",
+  icons: {
+    icon: "/images/favicon.png",
+  },
   openGraph: {
     type: "website",
     url: "/percentage-cal",
