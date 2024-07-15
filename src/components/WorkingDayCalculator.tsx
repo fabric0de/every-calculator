@@ -9,42 +9,57 @@ const WorkingDayCalculator = () => {
   const [holidayList, setHolidayList] = useState<Date[]>([]);
   const [results, setResults] = useState<{
     workingDays?: number;
-    holidaysCount?: number;
+    weekends?: number;
+    manualHolidays?: number;
+    totalHolidays?: number;
     totalDays?: number;
   }>({});
 
-  const calculateWorkingDays = (start: Date, end: Date, holidays: Date[]) => {
-    let count = 0;
+  const calculateWorkingDays = (
+    start: Date,
+    end: Date,
+    holidays: Date[]
+  ): { workingDays: number; weekends: number } => {
+    let workingDays = 0;
+    let weekends = 0;
     let currentDate = new Date(start);
     const holidaySet = new Set(holidays.map((date) => date.toDateString()));
 
     while (currentDate <= end) {
       const day = currentDate.getDay();
-      if (
-        day !== 0 &&
-        day !== 6 &&
-        !holidaySet.has(currentDate.toDateString())
-      ) {
-        count++;
+      if (day === 0 || day === 6) {
+        weekends++;
+      } else if (!holidaySet.has(currentDate.toDateString())) {
+        workingDays++;
       }
       currentDate.setDate(currentDate.getDate() + 1);
     }
 
-    return count;
+    return { workingDays, weekends };
   };
 
   const handleCalculate = () => {
     const start = new Date(startDate);
     const end = new Date(endDate);
 
-    const workingDays = calculateWorkingDays(start, end, holidayList);
-    const holidaysCount = holidayList.filter(
-      (date) => date >= start && date <= end
+    const { workingDays, weekends } = calculateWorkingDays(
+      start,
+      end,
+      holidayList
+    );
+    const manualHolidays = holidayList.filter(
+      (date) => date >= start && date <= end && ![0, 6].includes(date.getDay()) // 주말이 아닌 날만 카운트
     ).length;
     const totalDays =
       (end.getTime() - start.getTime()) / (1000 * 3600 * 24) + 1;
 
-    setResults({ workingDays, holidaysCount, totalDays });
+    setResults({
+      workingDays,
+      weekends,
+      manualHolidays,
+      totalHolidays: weekends + manualHolidays,
+      totalDays,
+    });
   };
 
   const addHoliday = () => {
@@ -141,7 +156,9 @@ const WorkingDayCalculator = () => {
             <p>시작일: {startDate}</p>
             <p>종료일: {endDate}</p>
             <p>워킹데이: {results.workingDays}일</p>
-            <p>휴일: {results.holidaysCount}일</p>
+            <p>주말: {results.weekends}일</p>
+            <p>추가 휴일: {results.manualHolidays}일</p>
+            <p>총 휴일 (주말 + 추가 휴일): {results.totalHolidays}일</p>
             <p>총 일 수: {results.totalDays}일</p>
           </div>
         )}

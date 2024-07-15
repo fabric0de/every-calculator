@@ -1,5 +1,0 @@
-User-Agent: *
-Allow: /
- 
-Host: https://www.every-calculator.com
-Sitemap: https://www.every-calculator.com/sitemap.xml
