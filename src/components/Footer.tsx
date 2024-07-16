@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex justify-center mt-2 space-x-4">
           <a
             href="mailto:junghyeonkim.dev@gmail.com"
-            className="hover:underline dark:text-blue-400"
+            className="hover:underline dark:text-white-400"
             aria-label="Email"
           >
             <FaEnvelope size={20} />
@@ -21,7 +21,7 @@ const Footer = () => {
             href="https://github.com/fabric0de"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline dark:text-blue-400"
+            className="hover:underline dark:text-white-400"
             aria-label="GitHub"
           >
             <FaGithub size={20} />
@@ -31,7 +31,7 @@ const Footer = () => {
           Contact me at{" "}
           <a
             href="mailto:junghyeonkim.dev@gmail.com"
-            className="hover:underline dark:text-blue-400"
+            className="hover:underline dark:text-white-400"
           >
             junghyeonkim.dev@gmail.com
           </a>
