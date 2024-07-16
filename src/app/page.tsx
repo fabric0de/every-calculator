@@ -37,6 +37,9 @@ const Home = () => {
             퍼센트 계산기
           </button>
         </Link>
+        <Link href="/d-day" className="p-2 bg-blue-500 text-white rounded">
+          D-day 계산기
+        </Link>
       </div>
     </>
   );
