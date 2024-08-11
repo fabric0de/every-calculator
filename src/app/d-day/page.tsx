@@ -1,4 +1,5 @@
 import DDayCalculator from "@/components/DDayCalculator";
+import KakaoAdFit from "@/components/KakaoAdFit";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,5 +24,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <DDayCalculator />;
+  return (
+    <>
+      <DDayCalculator />
+      <KakaoAdFit />
+    </>
+  );
 }

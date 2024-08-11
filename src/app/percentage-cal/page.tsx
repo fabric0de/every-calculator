@@ -1,4 +1,5 @@
 import PercentageCalculator from "@/components/PercentageCalculator";
+import KakaoAdFit from "@/components/KakaoAdFit";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,5 +24,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PercentageCalculator />;
+  return (
+    <>
+      <PercentageCalculator />
+      <KakaoAdFit />
+    </>
+  );
 }

@@ -1,3 +1,4 @@
+import KakaoAdFit from "@/components/KakaoAdFit";
 import WorkingDayCalculator from "@/components/WorkingDayCalculator";
 import { Metadata } from "next";
 
@@ -24,5 +25,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <WorkingDayCalculator />;
+  return (
+    <>
+      <WorkingDayCalculator />
+      <KakaoAdFit />
+    </>
+  );
 }
