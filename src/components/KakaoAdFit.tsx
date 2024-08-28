@@ -2,7 +2,13 @@
 
 import { useEffect } from "react";
 
-const KakaoAdFit = () => {
+interface KakaoAdFitProps {
+  adUnit: string;
+  adWidth: string;
+  adHeight: string;
+}
+
+const KakaoAdFit = ({ adUnit, adWidth, adHeight }: KakaoAdFitProps) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
@@ -18,9 +24,9 @@ const KakaoAdFit = () => {
     <ins
       className="kakao_ad_area"
       style={{ display: "none" }}
-      data-ad-unit="DAN-YjHamntPijrEDE2M"
-      data-ad-width="300"
-      data-ad-height="250"
+      data-ad-unit={adUnit}
+      data-ad-width={adWidth}
+      data-ad-height={adHeight}
     ></ins>
   );
 };
