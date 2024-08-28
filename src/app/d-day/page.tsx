@@ -26,8 +26,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <KakaoAdFit adUnit="DAN-bo76BqgAg2ORtsJ8" adWidth="728" adHeight="90" />
       <DDayCalculator />
-      <KakaoAdFit />
+      <KakaoAdFit adUnit="DAN-YjHamntPijrEDE2M" adWidth="300" adHeight="250" />
+      <KakaoAdFit adUnit="DAN-WUI7ADqb7y9dJzyd" adWidth="250" adHeight="250" />
     </>
   );
 }
