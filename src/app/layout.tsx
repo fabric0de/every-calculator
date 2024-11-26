@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="/manifest" href="/manifest.json" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-status-bar-style" content="black" />
         <meta name="mobile-web-app-title" content="Every Calculator" />
